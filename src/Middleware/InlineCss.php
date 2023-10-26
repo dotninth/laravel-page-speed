@@ -109,9 +109,9 @@ class InlineCss extends PageSpeed
     private function replaceMultipleClassAttributes(array $matches, string $value): string
     {
         $class = implode(' ', $matches);
-        $value = $this->replace(['/class="(.*?)"/' => ''], $value);
-        $value = $this->replace(['/>/' => 'class="' . $class . '">'], $value);
-        $value = str_replace('  ', ' ', $value);
+        $value = $this->replace(['/(?<!:)class="(.*?)"/' => ''], $value);
+        $value = $this->replace(['/>/' => ' class="' . $class . '">'], $value);
+        $value = preg_replace('/\s{2,}/', ' ', $value);
 
         return $value;
     }

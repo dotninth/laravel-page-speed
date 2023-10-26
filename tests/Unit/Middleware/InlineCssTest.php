@@ -38,3 +38,15 @@ it('injects class attributes into html tags', function () {
     expect($result)->toContain('class="');
     expect($result)->toContain('page_speed_');
 });
+
+it('does not break Alpine JS x-bind:class attribute', function () {
+    $middleware = new InlineCss();
+    $buffer = "<html><head></head><body><h1 style=\"color: red;\">Hello, world!</h1><p style=\"font-size: 14px;\" class=\"test-class\" :class=\"open ? '' : 'hidden'\">Lorem ipsum dolor sit amet.</p></body></html>";
+
+    $result = $middleware->apply($buffer);
+
+    expect($result)->not()->toContain('style="');
+    expect($result)->toContain('class="');
+    expect($result)->toContain(':class="');
+    expect($result)->toContain('page_speed_');
+});
