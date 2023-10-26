@@ -45,8 +45,6 @@ it('does not break Alpine JS x-bind:class attribute', function () {
 
     $result = $middleware->apply($buffer);
 
-    dd($result);
-
     expect($result)->not()->toContain('style="');
     expect($result)->toContain('class="');
     expect($result)->toContain(':class="');

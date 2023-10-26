@@ -7,7 +7,7 @@ it('applies method generates the correct output', function () {
 
     $buffer = '<html><head></head><body><a href="https://example.com">Link</a></body></html>';
 
-    $expectedResult = '<html><head><link rel="dns-prefetch" href="//example.com"></head><body><a href="https://example.com">Link</a></body></html>';
+    $expectedResult = "<html><head>\n<link rel=\"dns-prefetch\" href=\"//example.com\"></head><body><a href=\"https://example.com\">Link</a></body></html>";
 
     $result = $middleware->apply($buffer);
 
