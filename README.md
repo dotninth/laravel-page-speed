@@ -70,12 +70,12 @@ To enable the package functionality, make sure to register the provided middlewa
 
 protected $middleware = [
     ...
-    \DotNint\LaravelTachyon\Middleware\InlineCss::class,
-    \DotNint\LaravelTachyon\Middleware\ElideAttributes::class,
-    \DotNint\LaravelTachyon\Middleware\InsertDNSPrefetch::class,
-    \DotNint\LaravelTachyon\Middleware\RemoveQuotes::class,
-    \DotNint\LaravelTachyon\Middleware\CollapseWhitespace::class,
-    \DotNint\LaravelTachyon\Middleware\DeferJavascript::class,
+    \DotNinth\LaravelTachyon\Middleware\InlineCss::class,
+    \DotNinth\LaravelTachyon\Middleware\ElideAttributes::class,
+    \DotNinth\LaravelTachyon\Middleware\InsertDNSPrefetch::class,
+    \DotNinth\LaravelTachyon\Middleware\RemoveQuotes::class,
+    \DotNinth\LaravelTachyon\Middleware\CollapseWhitespace::class,
+    \DotNinth\LaravelTachyon\Middleware\DeferJavascript::class,
 ]
 ```
 
