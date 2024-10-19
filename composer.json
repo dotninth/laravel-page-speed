@@ -1,6 +1,6 @@
 {
   "name": "dotninth/laravel-tachyon",
-  "description": "Laravel Tachyon",
+  "description": "Laravel Tachyon is a package designed to optimize the performance of your Laravel applications by optimizing and minifying HTML output on demand.",
   "keywords": [
     "laravel",
     "page speed",
