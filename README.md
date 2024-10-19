@@ -67,20 +67,24 @@ php artisan vendor:publish --provider="DotNinth\LaravelTachyon\ServiceProvider"
 
 ### Middleware Registration
 
-To enable the package functionality, make sure to register the provided middlewares in the kernel of your Laravel application. Here's an example of how to do it:
+To enable the package functionality, make sure to register the provided middlewares in the `bootstrap/app.php` file of your Laravel application. Here's an example of how to do it:
 
 ```php
-// app/Http/Kernel.php
+// bootstrap/app.php
 
-protected $middleware = [
+return Application::configure(basePath: dirname(__DIR__))
     ...
-    \DotNinth\LaravelTachyon\Middleware\InlineCss::class,
-    \DotNinth\LaravelTachyon\Middleware\ElideAttributes::class,
-    \DotNinth\LaravelTachyon\Middleware\InsertDNSPrefetch::class,
-    \DotNinth\LaravelTachyon\Middleware\RemoveQuotes::class,
-    \DotNinth\LaravelTachyon\Middleware\CollapseWhitespace::class,
-    \DotNinth\LaravelTachyon\Middleware\DeferJavascript::class,
-]
+    ->withMiddleware(function (Middleware $middleware) {
+        $middleware->append([
+            \DotNinth\LaravelTachyon\Middleware\RemoveComments::class,
+            \DotNinth\LaravelTachyon\Middleware\CollapseWhitespace::class,
+            \DotNinth\LaravelTachyon\Middleware\ElideAttributes::class,
+            \DotNinth\LaravelTachyon\Middleware\InlineCss::class,
+            \DotNinth\LaravelTachyon\Middleware\InsertDNSPrefetch::class,
+            \DotNinth\LaravelTachyon\Middleware\DeferJavascript::class,
+        ]);
+    })
+    ...
 ```
 
 <br>
