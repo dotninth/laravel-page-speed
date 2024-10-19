@@ -23,9 +23,9 @@
 </p>
 
 <h4 align="center">
-    <img src="http://poser.pugx.org/ideal-creative-lab/laravel-tachyon/v?style=for-the-badge" alt="Latest Stable Version">
-    <img src="http://poser.pugx.org/ideal-creative-lab/laravel-tachyon/require/php?style=for-the-badge" alt="PHP Version Require">
-    <img src="http://poser.pugx.org/ideal-creative-lab/laravel-tachyon/license?style=for-the-badge" alt="License">
+    <img src="http://poser.pugx.org/dotninth/laravel-tachyon/v?style=for-the-badge" alt="Latest Stable Version">
+    <img src="http://poser.pugx.org/dotninth/laravel-tachyon/require/php?style=for-the-badge" alt="PHP Version Require">
+    <img src="http://poser.pugx.org/dotninth/laravel-tachyon/license?style=for-the-badge" alt="License">
 </h4>
 
 ## Introduction
@@ -49,14 +49,16 @@ Additionally, **Laravel Tachyon** ensures that the optimization process does not
 ## Getting Started
 
 ### Requirements
-- **[PHP 8.0+](https://php.net/releases/)**
-- **[Laravel 9.0+](https://github.com/laravel/laravel)**
+
+- **[PHP 8.2+](https://php.net/releases/)**
+- **[Laravel 11.0+](https://github.com/laravel/laravel)**
+
 ### Installation
 
 You can install the package via composer:
 
 ```zsh
-composer require ideal-creative-lab/laravel-tachyon
+composer require dotninth/laravel-tachyon
 ```
 
 This package supports Laravel [Package Discovery][link-package-discovery].
@@ -66,7 +68,7 @@ This package supports Laravel [Package Discovery][link-package-discovery].
 To customize the package settings, you can publish the configuration file with the following command:
 
 ```zsh
-php artisan vendor:publish --provider="IdealCreativeLab\LaravelTachyon\ServiceProvider"
+php artisan vendor:publish --provider="DotNinth\LaravelTachyon\ServiceProvider"
 ```
 
 ### Middleware Registration
@@ -78,21 +80,26 @@ To enable the package functionality, make sure to register the provided middlewa
 
 protected $middleware = [
     ...
-    \IdealCreativeLab\LaravelTachyon\Middleware\InlineCss::class,
-    \IdealCreativeLab\LaravelTachyon\Middleware\ElideAttributes::class,
-    \IdealCreativeLab\LaravelTachyon\Middleware\InsertDNSPrefetch::class,
-    \IdealCreativeLab\LaravelTachyon\Middleware\RemoveQuotes::class,
-    \IdealCreativeLab\LaravelTachyon\Middleware\CollapseWhitespace::class,
-    \IdealCreativeLab\LaravelTachyon\Middleware\DeferJavascript::class,
+    \DotNint\LaravelTachyon\Middleware\InlineCss::class,
+    \DotNint\LaravelTachyon\Middleware\ElideAttributes::class,
+    \DotNint\LaravelTachyon\Middleware\InsertDNSPrefetch::class,
+    \DotNint\LaravelTachyon\Middleware\RemoveQuotes::class,
+    \DotNint\LaravelTachyon\Middleware\CollapseWhitespace::class,
+    \DotNint\LaravelTachyon\Middleware\DeferJavascript::class,
 ]
 ```
 
 ## Middlewares Details
 
-- `RemoveComments::class`: Removes HTML, JS, and CSS comments from the output to reduce the transfer size of HTML files.
-- `CollapseWhitespace::class`: Reduces the size of HTML files by removing unnecessary white space.
-  - **It automatically calls the `RemoveComments::class` middleware before executing.**
-  - You can **ignore** minification of some elements. Add `data-tachyon-ignore` as an element attribute to do so.
+| **Middleware**              | **Description**                                                                                                                                                                                                                                                                 |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RemoveComments::class`     | Removes HTML, JS, and CSS comments from the output to reduce the transfer size of HTML files.                                                                                                                                                                                   |
+| `CollapseWhitespace::class` | Reduces the size of HTML files by removing unnecessary white space.<br>- **It automatically calls the `RemoveComments::class` middleware before executing.**<br>- You can **ignore** minification of some elements. Add `data-tachyon-ignore` as an element attribute to do so. |
+|                             |                                                                                                                                                                                                                                                                                 |
+
+- :
+- :
+
 - `RemoveQuotes::class`: Removes unnecessary quotes from HTML attributes, resulting in a reduced byte count on most pages.
 - `ElideAttributes::class`: Reduces the transfer size of HTML files by removing attributes from tags if their values match the default attribute values.
 - `InsertDNSPrefetch::class`: Includes `<link rel="dns-prefetch" href="//www.example.com">` tags in the HTML `<head>` section to enable DNS prefetching, reducing DNS lookup time and improving page load times.
@@ -116,6 +123,7 @@ To disable the Laravel Tachyon service in your local environment and get readabl
 //Set this field to false to disable the Laravel Tachyon service.
 'enable' => env('LARAVEL_TACHYON_ENABLED', true),
 ```
+
 ### Skip routes
 
 You can configure the package to skip optimization for certain routes. Use the `*` wildcard to match multiple routes. Here's an example:
@@ -133,8 +141,7 @@ You can configure the package to skip optimization for certain routes. Use the `
 
 Feel free to adjust the configuration options according to your specific needs.
 
-> ***Notice:*** By default, the package automatically skips `binary` and `streamed` responses. See the [File Downloads][link-file-download] for more information.
-
+> _**Notice:**_ By default, the package automatically skips `binary` and `streamed` responses. See the [File Downloads][link-file-download] for more information.
 
 ## Testing
 
@@ -150,5 +157,5 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[link-file-download]: https://laravel.com/docs/10.x/responses#file-downloads
-[link-package-discovery]: https://laravel.com/docs/10.x/packages#package-discovery
+[link-file-download]: https://laravel.com/docs/11.x/responses#file-downloads
+[link-package-discovery]: https://laravel.com/docs/11.x/packages#package-discovery
