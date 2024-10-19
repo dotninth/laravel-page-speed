@@ -1,34 +1,26 @@
-<p align="center">
-    <a href="https://supportukrainenow.org#gh-light-mode-only">
-        <img src="./.github/assets/support-ukraine-light.svg" alt="Support Ukraine">
-    </a>
-    <a href="https://supportukrainenow.org#gh-dark-mode-only">
-        <img src="./.github/assets/support-ukraine-dark.svg" alt="Support Ukraine">
-    </a>
-</p>
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct.svg)](https://supportukrainenow.org/)
 
 <br>
 
 <h1 align="center">
-    <a href="https://github.com/ideal-creative-lab/laravel-tachyon#gh-light-mode-only">
+    <a href="https://github.com/dotninth/laravel-tachyon#gh-light-mode-only">
         <img src="./.github/assets/laravel-tachyon-light.svg" alt="Laravel Tachyon">
     </a>
-    <a href="https://github.com/ideal-creative-lab/laravel-tachyon#gh-dark-mode-only">
+    <a href="https://github.com/dotninth/laravel-tachyon#gh-dark-mode-only">
         <img src="./.github/assets/laravel-tachyon-dark.svg" alt="Laravel Tachyon">
     </a>
 </h1>
 
-<p align="center">
-    <i align="center"></i>
-</p>
-
 <h4 align="center">
-    <img src="http://poser.pugx.org/ideal-creative-lab/laravel-tachyon/v?style=for-the-badge" alt="Latest Stable Version">
-    <img src="http://poser.pugx.org/ideal-creative-lab/laravel-tachyon/require/php?style=for-the-badge" alt="PHP Version Require">
-    <img src="http://poser.pugx.org/ideal-creative-lab/laravel-tachyon/license?style=for-the-badge" alt="License">
+    <img src="http://poser.pugx.org/dotninth/laravel-tachyon/v?style=for-the-badge" alt="Latest Stable Version">
+    <img src="http://poser.pugx.org/dotninth/laravel-tachyon/require/php?style=for-the-badge" alt="PHP Version Require">
+    <img src="http://poser.pugx.org/dotninth/laravel-tachyon/license?style=for-the-badge" alt="License">
+    <a href="https://stand-with-ukraine.pp.ua"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg" alt="Stand With Ukraine"></a>
 </h4>
 
-## Introduction
+<br>
+
+## 🚀 Introduction
 
 `Laravel Tachyon` is a powerful package designed to optimize the performance of your Laravel applications by minifying HTML output on demand. With over 35% optimization, it helps improve page load speed and overall user experience.
 
@@ -46,17 +38,21 @@ Additionally, **Laravel Tachyon** ensures that the optimization process does not
 
 - `<script>`: The content within `<script>` tags, which is used for JavaScript code, is not modified by Laravel Tachyon. This ensures that your JavaScript code remains intact and functions as expected.
 
-## Getting Started
+<br>
+
+## 🏁 Getting Started
 
 ### Requirements
-- **[PHP 8.0+](https://php.net/releases/)**
-- **[Laravel 9.0+](https://github.com/laravel/laravel)**
+
+- **[PHP 8.2+](https://php.net/releases/)**
+- **[Laravel 11.0+](https://github.com/laravel/laravel)**
+
 ### Installation
 
 You can install the package via composer:
 
 ```zsh
-composer require ideal-creative-lab/laravel-tachyon
+composer require dotninth/laravel-tachyon
 ```
 
 This package supports Laravel [Package Discovery][link-package-discovery].
@@ -66,7 +62,7 @@ This package supports Laravel [Package Discovery][link-package-discovery].
 To customize the package settings, you can publish the configuration file with the following command:
 
 ```zsh
-php artisan vendor:publish --provider="IdealCreativeLab\LaravelTachyon\ServiceProvider"
+php artisan vendor:publish --provider="DotNinth\LaravelTachyon\ServiceProvider"
 ```
 
 ### Middleware Registration
@@ -78,31 +74,49 @@ To enable the package functionality, make sure to register the provided middlewa
 
 protected $middleware = [
     ...
-    \IdealCreativeLab\LaravelTachyon\Middleware\InlineCss::class,
-    \IdealCreativeLab\LaravelTachyon\Middleware\ElideAttributes::class,
-    \IdealCreativeLab\LaravelTachyon\Middleware\InsertDNSPrefetch::class,
-    \IdealCreativeLab\LaravelTachyon\Middleware\RemoveQuotes::class,
-    \IdealCreativeLab\LaravelTachyon\Middleware\CollapseWhitespace::class,
-    \IdealCreativeLab\LaravelTachyon\Middleware\DeferJavascript::class,
+    \DotNinth\LaravelTachyon\Middleware\InlineCss::class,
+    \DotNinth\LaravelTachyon\Middleware\ElideAttributes::class,
+    \DotNinth\LaravelTachyon\Middleware\InsertDNSPrefetch::class,
+    \DotNinth\LaravelTachyon\Middleware\RemoveQuotes::class,
+    \DotNinth\LaravelTachyon\Middleware\CollapseWhitespace::class,
+    \DotNinth\LaravelTachyon\Middleware\DeferJavascript::class,
 ]
 ```
 
-## Middlewares Details
+<br>
 
-- `RemoveComments::class`: Removes HTML, JS, and CSS comments from the output to reduce the transfer size of HTML files.
-- `CollapseWhitespace::class`: Reduces the size of HTML files by removing unnecessary white space.
-  - **It automatically calls the `RemoveComments::class` middleware before executing.**
-  - You can **ignore** minification of some elements. Add `data-tachyon-ignore` as an element attribute to do so.
-- `RemoveQuotes::class`: Removes unnecessary quotes from HTML attributes, resulting in a reduced byte count on most pages.
-- `ElideAttributes::class`: Reduces the transfer size of HTML files by removing attributes from tags if their values match the default attribute values.
-- `InsertDNSPrefetch::class`: Includes `<link rel="dns-prefetch" href="//www.example.com">` tags in the HTML `<head>` section to enable DNS prefetching, reducing DNS lookup time and improving page load times.
-- `TrimUrls::class`: Trims URLs by making them relative to the base URL of the page. This can help reduce the size of URLs and may improve performance.
-  - **⚠️ Note: Use this middleware with care, as it can cause problems if the wrong base URL is used.**
-- `InlineCss::class`: Transforms the inline `style` attribute of HTML tags into classes by moving the CSS into the `<head>` section, improving page rendering and reducing the number of browser requests.
-- `DeferJavascript::class`: Defers the execution of JavaScript code in HTML, prioritizing the rendering of critical content before executing JavaScript.
-  - If you need **to cancel the defer** in some script, use `data-tachyon-no-defer` as a script attribute to cancel the defer.
+## 🛠️ Middlewares Details
 
-## Configuration
+- `RemoveComments::class`
+  - Removes HTML, JS, and CSS comments from the output to reduce the transfer size of HTML files.
+- `CollapseWhitespace::class`
+  - Reduces the size of HTML files by removing unnecessary white space.
+- `RemoveQuotes::class`
+  - Removes unnecessary quotes from HTML attributes, resulting in a reduced byte count on most pages.
+- `ElideAttributes::class`
+  - Reduces the transfer size of HTML files by removing attributes from tags if their values match the default attribute values.
+- `InsertDNSPrefetch::class`
+  - Includes `<link rel="dns-prefetch" href="//www.example.com">` tags in the HTML `<head>` section to enable DNS prefetching, reducing DNS lookup time and improving page load times.
+- `TrimUrls::class`
+  - Trims URLs by making them relative to the base URL of the page. This can help reduce the size of URLs and may improve performance.
+- `InlineCss::class`
+  - Transforms the inline `style` attribute of HTML tags into classes by moving the CSS into the `<head>` section, improving page rendering and reducing the number of browser requests.
+- `DeferJavascript::class`
+  - Defers the execution of JavaScript code in HTML, prioritizing the rendering of critical content before executing JavaScript.
+    - If you need **to cancel the defer** in some script, use `data-tachyon-no-defer` as a script attribute to cancel the defer.
+
+> [!WARNING]
+> Use `TrimUrls::class` middleware with care, as it can cause problems if the wrong base URL is used.
+
+> [!IMPORTANT]
+> `CollapseWhitespace::class` automatically calls the `RemoveComments::class` middleware before executing.
+
+> [!NOTE]
+> You can **ignore** minification of some elements. Add `data-tachyon-ignore` as an element attribute to do so.
+
+<br>
+
+## ⚙️ Configuration
 
 After installing the package, you may need to configure some options according to your needs.
 
@@ -116,6 +130,7 @@ To disable the Laravel Tachyon service in your local environment and get readabl
 //Set this field to false to disable the Laravel Tachyon service.
 'enable' => env('LARAVEL_TACHYON_ENABLED', true),
 ```
+
 ### Skip routes
 
 You can configure the package to skip optimization for certain routes. Use the `*` wildcard to match multiple routes. Here's an example:
@@ -133,22 +148,27 @@ You can configure the package to skip optimization for certain routes. Use the `
 
 Feel free to adjust the configuration options according to your specific needs.
 
-> ***Notice:*** By default, the package automatically skips `binary` and `streamed` responses. See the [File Downloads][link-file-download] for more information.
+> _**Notice:**_ By default, the package automatically skips `binary` and `streamed` responses. See the [File Downloads][link-file-download] for more information.
 
+<br>
 
-## Testing
+## 🧪 Testing
 
 ```zsh
 $ composer test
 ```
 
-## Contributing
+<br>
+
+## 🤝 Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-## License
+<br>
+
+## 📄 License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[link-file-download]: https://laravel.com/docs/10.x/responses#file-downloads
-[link-package-discovery]: https://laravel.com/docs/10.x/packages#package-discovery
+[link-file-download]: https://laravel.com/docs/11.x/responses#file-downloads
+[link-package-discovery]: https://laravel.com/docs/11.x/packages#package-discovery

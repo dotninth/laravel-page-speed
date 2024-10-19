@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IdealCreativeLab\LaravelTachyon\Middleware;
+namespace DotNinth\LaravelTachyon\Middleware;
 
 class RemoveComments extends PageSpeed
 {
@@ -19,7 +19,7 @@ class RemoveComments extends PageSpeed
     /**
      * Applies the remove comments functionality to the given buffer.
      *
-     * @param  string  $buffer The input buffer
+     * @param  string  $buffer  The input buffer
      * @return string The buffer with comments removed
      */
     public function apply(string $buffer): string

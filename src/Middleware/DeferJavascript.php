@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace IdealCreativeLab\LaravelTachyon\Middleware;
+namespace DotNinth\LaravelTachyon\Middleware;
 
 class DeferJavascript extends PageSpeed
 {
     /**
      * Add defer attribute to script tags
      *
-     * @param  string  $buffer The buffer to add the defer attribute to
+     * @param  string  $buffer  The buffer to add the defer attribute to
      * @return string The modified buffer after adding the defer attribute
      */
     public function apply(string $buffer): string

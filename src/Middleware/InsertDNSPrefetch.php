@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IdealCreativeLab\LaravelTachyon\Middleware;
+namespace DotNinth\LaravelTachyon\Middleware;
 
 use Illuminate\Support\Collection;
 
@@ -45,7 +45,7 @@ class InsertDNSPrefetch extends PageSpeed
             $domain = explode('/', str_replace('//', '', $domain));
 
             return "<link rel=\"dns-prefetch\" href=\"//{$domain[0]}\">";
-        })->unique()->implode("");
+        })->unique()->implode('');
     }
 
     /**
@@ -53,7 +53,7 @@ class InsertDNSPrefetch extends PageSpeed
      */
     private function trimUrl(string $url): string
     {
-        return (new TrimUrls())->apply($url);
+        return (new TrimUrls)->apply($url);
     }
 
     /**

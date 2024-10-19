@@ -1,9 +1,11 @@
 <?php
 
-namespace IdealCreativeLab\LaravelTachyon\Middleware;
+namespace DotNinth\LaravelTachyon\Test\Unit\Middleware;
+
+use DotNinth\LaravelTachyon\Middleware\InlineCss;
 
 it('applies inline css transformation to html content', function () {
-    $middleware = new InlineCss();
+    $middleware = new InlineCss;
     $buffer = '<html><head></head><body><h1 style="color: red;">Hello, world!</h1><p style="font-size: 14px;">Lorem ipsum dolor sit amet.</p></body></html>';
 
     $result = $middleware->apply($buffer);
@@ -16,7 +18,7 @@ it('applies inline css transformation to html content', function () {
 });
 
 it('injects inline css styles into html head section', function () {
-    $middleware = new InlineCss();
+    $middleware = new InlineCss;
     $buffer = '<html><head></head><body><h1 style="color: red;">Hello, world!</h1><p style="font-size: 14px;">Lorem ipsum dolor sit amet.</p></body></html>';
 
     $result = $middleware->apply($buffer);
@@ -29,7 +31,7 @@ it('injects inline css styles into html head section', function () {
 });
 
 it('injects class attributes into html tags', function () {
-    $middleware = new InlineCss();
+    $middleware = new InlineCss;
     $buffer = '<html><head></head><body><h1 style="color: red;">Hello, world!</h1><p style="font-size: 14px;">Lorem ipsum dolor sit amet.</p></body></html>';
 
     $result = $middleware->apply($buffer);
@@ -40,7 +42,7 @@ it('injects class attributes into html tags', function () {
 });
 
 it('does not break Alpine JS x-bind:class attribute', function () {
-    $middleware = new InlineCss();
+    $middleware = new InlineCss;
     $buffer = "<html><head></head><body><h1 style=\"color: red;\">Hello, world!</h1><p style=\"font-size: 14px;\" class=\"test-class\" :class=\"open ? '' : 'hidden'\">Lorem ipsum dolor sit amet.</p></body></html>";
 
     $result = $middleware->apply($buffer);

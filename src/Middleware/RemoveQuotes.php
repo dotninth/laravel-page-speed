@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace IdealCreativeLab\LaravelTachyon\Middleware;
+namespace DotNinth\LaravelTachyon\Middleware;
 
-use IdealCreativeLab\LaravelTachyon\Entities\HtmlSpecs;
+use DotNinth\LaravelTachyon\Entities\HtmlSpecs;
 
 class RemoveQuotes extends PageSpeed
 {
     /**
      * Remove quotes from attribute values in the given buffer
      *
-     * @param  string  $buffer The input buffer to apply transformations to
+     * @param  string  $buffer  The input buffer to apply transformations to
      * @return string The resulting buffer after applying transformations
      */
     public function apply(string $buffer): string

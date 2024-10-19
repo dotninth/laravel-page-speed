@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
-namespace IdealCreativeLab\LaravelTachyon\Middleware;
+namespace DotNinth\LaravelTachyon\Test\Unit\Middleware;
+
+use DotNinth\LaravelTachyon\Middleware\CollapseWhitespace;
 
 it('apply removes newlines', function () {
-    $middleware = new CollapseWhitespace();
+    $middleware = new CollapseWhitespace;
     $buffer = "Hello\nWorld";
     $expectedResult = 'HelloWorld';
 
@@ -15,7 +17,7 @@ it('apply removes newlines', function () {
 });
 
 it('apply removes carriage returns', function () {
-    $middleware = new CollapseWhitespace();
+    $middleware = new CollapseWhitespace;
     $buffer = "Hello\rWorld";
     $expectedResult = 'HelloWorld';
 
@@ -25,7 +27,7 @@ it('apply removes carriage returns', function () {
 });
 
 it('apply removes remaining newlines', function () {
-    $middleware = new CollapseWhitespace();
+    $middleware = new CollapseWhitespace;
     $buffer = "Hello\nWorld\n";
     $expectedResult = 'HelloWorld';
 
@@ -35,7 +37,7 @@ it('apply removes remaining newlines', function () {
 });
 
 it('apply removes tabs', function () {
-    $middleware = new CollapseWhitespace();
+    $middleware = new CollapseWhitespace;
     $buffer = "Hello\tWorld";
     $expectedResult = 'HelloWorld';
 
@@ -45,7 +47,7 @@ it('apply removes tabs', function () {
 });
 
 it('apply replaces multiple spaces with single space', function () {
-    $middleware = new CollapseWhitespace();
+    $middleware = new CollapseWhitespace;
     $buffer = 'Hello     World';
     $expectedResult = 'Hello World';
 
@@ -55,7 +57,7 @@ it('apply replaces multiple spaces with single space', function () {
 });
 
 it('apply removes spaces between HTML tags', function () {
-    $middleware = new CollapseWhitespace();
+    $middleware = new CollapseWhitespace;
     $buffer = '<div>Hello</div>   <div>World</div>';
     $expectedResult = '<div>Hello</div><div>World</div>';
 
@@ -65,8 +67,8 @@ it('apply removes spaces between HTML tags', function () {
 });
 
 it('ignores elements with data-tachyon-ignore', function () {
-    $middleware = new CollapseWhitespace();
-    $buffer = <<<HTML
+    $middleware = new CollapseWhitespace;
+    $buffer = <<<'HTML'
 <div>
     <div>Hello</div>   <div>World</div>
     <div data-tachyon-ignore>
@@ -77,7 +79,7 @@ it('ignores elements with data-tachyon-ignore', function () {
 </div>
 HTML;
 
-    $expectedResult = <<<HTML
+    $expectedResult = <<<'HTML'
 <div><div>Hello</div><div>World</div><div data-tachyon-ignore>
         <p>Hello</p>
 
