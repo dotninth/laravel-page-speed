@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IdealCreativeLab\LaravelTachyon\Middleware;
+namespace DotNinth\LaravelTachyon\Middleware;
 
 use Illuminate\Support\Str;
 
@@ -31,7 +31,7 @@ class InlineCss extends PageSpeed
     /**
      * Apply the inline CSS transformation to the HTML content.
      *
-     * @param  string  $buffer the HTML content
+     * @param  string  $buffer  the HTML content
      * @return string the transformed HTML content
      */
     public function apply(string $buffer): string
@@ -102,8 +102,8 @@ class InlineCss extends PageSpeed
     /**
      * Replaces multiple class attributes in a given string.
      *
-     * @param  array  $matches an array of class attributes to be replaced
-     * @param  string  $value   the original string to be modified
+     * @param  array  $matches  an array of class attributes to be replaced
+     * @param  string  $value  the original string to be modified
      * @return string the modified string with replaced class attributes
      */
     private function replaceMultipleClassAttributes(array $matches, string $value): string
@@ -119,7 +119,7 @@ class InlineCss extends PageSpeed
     /**
      * Retrieves an array of class attributes from a given string.
      *
-     * @param  string  $value the string from which to extract class attributes
+     * @param  string  $value  the string from which to extract class attributes
      * @return array an array of class attributes
      */
     private function getClassAttributes(string $value): array

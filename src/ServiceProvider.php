@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IdealCreativeLab\LaravelTachyon;
+namespace DotNinth\LaravelTachyon;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
@@ -10,8 +10,6 @@ class ServiceProvider extends BaseServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
      */
     protected bool $defer = false;
 

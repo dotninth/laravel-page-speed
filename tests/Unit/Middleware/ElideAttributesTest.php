@@ -1,9 +1,11 @@
 <?php
 
-namespace IdealCreativeLab\LaravelTachyon\Middleware;
+namespace DotNinth\LaravelTachyon\Test\Unit\Middleware;
+
+use DotNinth\LaravelTachyon\Middleware\ElideAttributes;
 
 it('should elide attributes from the given buffer', function () {
-    $elideAttributes = new ElideAttributes();
+    $elideAttributes = new ElideAttributes;
 
     $buffer = '<form method="get" id="myForm">Form Content</form>';
 
@@ -14,7 +16,7 @@ it('should elide attributes from the given buffer', function () {
 });
 
 it('should elide disabled attributes from the given buffer', function () {
-    $elideAttributes = new ElideAttributes();
+    $elideAttributes = new ElideAttributes;
 
     $buffer = '<input type="text" disabled="disabled" value="Hello">';
 
@@ -25,7 +27,7 @@ it('should elide disabled attributes from the given buffer', function () {
 });
 
 it('should elide selected attributes from the given buffer', function () {
-    $elideAttributes = new ElideAttributes();
+    $elideAttributes = new ElideAttributes;
 
     $buffer = '<select>
                     <option value="">Select option</option>

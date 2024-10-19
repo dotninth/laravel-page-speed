@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IdealCreativeLab\LaravelTachyon\Middleware;
+namespace DotNinth\LaravelTachyon\Middleware;
 
 class CollapseWhitespace extends PageSpeed
 {
@@ -41,7 +41,7 @@ class CollapseWhitespace extends PageSpeed
     /**
      * Apply the whitespace collapsing to the given buffer
      *
-     * @param  string  $buffer The input buffer to apply transformations to
+     * @param  string  $buffer  The input buffer to apply transformations to
      * @return string The transformed buffer
      */
     public function apply(string $buffer): string
@@ -56,18 +56,18 @@ class CollapseWhitespace extends PageSpeed
     /**
      * Remove comments from a given buffer
      *
-     * @param  string  $buffer The buffer to remove comments from
+     * @param  string  $buffer  The buffer to remove comments from
      * @return string The updated buffer without comments
      */
     protected function removeComments(string $buffer): string
     {
-        return (new RemoveComments())->apply($buffer);
+        return (new RemoveComments)->apply($buffer);
     }
 
     /**
      * Hide elements in the given buffer
      *
-     * @param  string  $buffer The buffer to hide elements in
+     * @param  string  $buffer  The buffer to hide elements in
      * @return string The buffer with hidden elements
      */
     protected function hideElements(string $buffer): string
@@ -80,7 +80,7 @@ class CollapseWhitespace extends PageSpeed
     /**
      * Find and add skipped elements from a given buffer
      *
-     * @param  string  $buffer The buffer to search for skipped elements
+     * @param  string  $buffer  The buffer to search for skipped elements
      */
     protected function findSkippedElements(string $buffer): void
     {
@@ -97,7 +97,7 @@ class CollapseWhitespace extends PageSpeed
     /**
      * Adds a skipped element to the list
      *
-     * @param  string  $element The element to be skipped
+     * @param  string  $element  The element to be skipped
      */
     protected function addSkippedElement(string $element): void
     {
@@ -108,7 +108,7 @@ class CollapseWhitespace extends PageSpeed
     /**
      * Replaces the skipped elements in the given buffer
      *
-     * @param  string  $buffer The buffer to replace the skipped elements in
+     * @param  string  $buffer  The buffer to replace the skipped elements in
      * @return string The modified buffer after replacing the skipped elements
      */
     protected function replaceSkippedElements(string $buffer): string
@@ -123,7 +123,7 @@ class CollapseWhitespace extends PageSpeed
     /**
      * Restores the skipped elements in the given buffer
      *
-     * @param  string  $buffer The buffer containing the skipped elements
+     * @param  string  $buffer  The buffer containing the skipped elements
      * @return string The buffer with the skipped elements restored
      */
     protected function restoreSkippedElements(string $buffer): string

@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace IdealCreativeLab\LaravelTachyon\Middleware;
+namespace DotNinth\LaravelTachyon\Middleware;
 
 use Closure;
-use IdealCreativeLab\LaravelTachyon\Entities\HtmlSpecs;
+use DotNinth\LaravelTachyon\Entities\HtmlSpecs;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -33,7 +32,7 @@ abstract class PageSpeed
     /**
      * Apply the PageSpeed transformations to the HTML buffer
      *
-     * @param  string  $buffer The HTML buffer
+     * @param  string  $buffer  The HTML buffer
      * @return string The transformed HTML buffer
      */
     abstract public function apply(string $buffer): string;
@@ -41,8 +40,8 @@ abstract class PageSpeed
     /**
      * Handle an incoming request
      *
-     * @param  \Illuminate\Http\Request  $request HTTP request
-     * @param  \Closure  $next The next middleware
+     * @param  \Illuminate\Http\Request  $request  HTTP request
+     * @param  \Closure  $next  The next middleware
      * @return mixed $response The response
      */
     public function handle(Request $request, Closure $next): mixed
@@ -62,8 +61,8 @@ abstract class PageSpeed
     /**
      * Replace patterns in the buffer using preg_replace
      *
-     * @param  array  $replace The patterns to replace
-     * @param  string  $buffer The buffer to replace patterns in
+     * @param  array  $replace  The patterns to replace
+     * @param  string  $buffer  The buffer to replace patterns in
      * @return string The buffer with patterns replaced
      */
     protected function replace(array $replace, string $buffer): string
@@ -90,8 +89,8 @@ abstract class PageSpeed
     /**
      * Check if PageSpeed should process the request and response
      *
-     * @param  Request  $request The HTTP request
-     * @param  mixed  $response The HTTP response
+     * @param  Request  $request  The HTTP request
+     * @param  mixed  $response  The HTTP response
      * @return bool True if PageSpeed should process the request and response, false otherwise
      */
     protected function shouldProcessPageSpeed(
@@ -114,8 +113,8 @@ abstract class PageSpeed
     /**
      * Match all HTML tags in the buffer
      *
-     * @param  array  $tags The HTML tags to match
-     * @param  string  $buffer The HTML buffer
+     * @param  array  $tags  The HTML tags to match
+     * @param  string  $buffer  The HTML buffer
      * @return array The matched HTML tags
      */
     protected function matchAllHtmlTag(array $tags, string $buffer): array
@@ -132,9 +131,9 @@ abstract class PageSpeed
     /**
      * Matches tags in the given buffer against a pattern
      *
-     * @param  array  $tags The tags to match
-     * @param  string  $pattern The pattern to match against
-     * @param  string  $buffer The buffer to search in
+     * @param  array  $tags  The tags to match
+     * @param  string  $pattern  The pattern to match against
+     * @param  string  $buffer  The buffer to search in
      * @return array The matched tags
      */
     protected function matchTags(array $tags, string $pattern, string $buffer): array
@@ -153,10 +152,10 @@ abstract class PageSpeed
     /**
      * Replaces the specified content inside HTML tags with a given replacement string
      *
-     * @param  array  $tags The HTML tags to match
-     * @param  string  $regex The regular expression pattern to match the content inside the HTML tags
-     * @param  string  $replace The replacement string to use
-     * @param  string  $buffer The HTML content to search and replace within
+     * @param  array  $tags  The HTML tags to match
+     * @param  string  $regex  The regular expression pattern to match the content inside the HTML tags
+     * @param  string  $replace  The replacement string to use
+     * @param  string  $buffer  The HTML content to search and replace within
      * @return string The modified HTML content
      */
     protected function replaceInsideHtmlTags(array $tags, string $regex, string $replace, string $buffer): string
