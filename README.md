@@ -3,17 +3,13 @@
 <br>
 
 <h1 align="center">
-    <a href="https://github.com/ideal-creative-lab/laravel-tachyon#gh-light-mode-only">
+    <a href="https://github.com/dotninth/laravel-tachyon#gh-light-mode-only">
         <img src="./.github/assets/laravel-tachyon-light.svg" alt="Laravel Tachyon">
     </a>
-    <a href="https://github.com/ideal-creative-lab/laravel-tachyon#gh-dark-mode-only">
+    <a href="https://github.com/dotninth/laravel-tachyon#gh-dark-mode-only">
         <img src="./.github/assets/laravel-tachyon-dark.svg" alt="Laravel Tachyon">
     </a>
 </h1>
-
-<p align="center">
-    <i align="center"></i>
-</p>
 
 <h4 align="center">
     <img src="http://poser.pugx.org/dotninth/laravel-tachyon/v?style=for-the-badge" alt="Latest Stable Version">
