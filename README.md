@@ -18,7 +18,9 @@
     <a href="https://stand-with-ukraine.pp.ua"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg" alt="Stand With Ukraine"></a>
 </h4>
 
-## Introduction
+<br>
+
+## 🚀 Introduction
 
 `Laravel Tachyon` is a powerful package designed to optimize the performance of your Laravel applications by minifying HTML output on demand. With over 35% optimization, it helps improve page load speed and overall user experience.
 
@@ -36,7 +38,9 @@ Additionally, **Laravel Tachyon** ensures that the optimization process does not
 
 - `<script>`: The content within `<script>` tags, which is used for JavaScript code, is not modified by Laravel Tachyon. This ensures that your JavaScript code remains intact and functions as expected.
 
-## Getting Started
+<br>
+
+## 🏁 Getting Started
 
 ### Requirements
 
@@ -79,7 +83,9 @@ protected $middleware = [
 ]
 ```
 
-## Middlewares Details
+<br>
+
+## 🛠️ Middlewares Details
 
 - `RemoveComments::class`
   - Removes HTML, JS, and CSS comments from the output to reduce the transfer size of HTML files.
@@ -108,7 +114,9 @@ protected $middleware = [
 > [!NOTE]
 > You can **ignore** minification of some elements. Add `data-tachyon-ignore` as an element attribute to do so.
 
-## Configuration
+<br>
+
+## ⚙️ Configuration
 
 After installing the package, you may need to configure some options according to your needs.
 
@@ -142,17 +150,23 @@ Feel free to adjust the configuration options according to your specific needs.
 
 > _**Notice:**_ By default, the package automatically skips `binary` and `streamed` responses. See the [File Downloads][link-file-download] for more information.
 
-## Testing
+<br>
+
+## 🧪 Testing
 
 ```zsh
 $ composer test
 ```
 
-## Contributing
+<br>
+
+## 🤝 Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-## License
+<br>
+
+## 📄 License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
