@@ -104,11 +104,11 @@ protected $middleware = [
             <td>Removes HTML, JS, and CSS comments from the output to reduce the transfer size of HTML files.</td>
         </tr>
         <tr>
-            <td><code>CollapseWhitespace::class<code></td>
+            <td><code>CollapseWhitespace::class</code></td>
             <td>
                 <p>Reduces the size of HTML files by removing unnecessary white space.</p>
                 <ul>
-                    <li><strong>It automatically calls the <code>RemoveComments::class<code> middleware before executing.</strong></li>
+                    <li><strong>It automatically calls the <code>RemoveComments::class</code> middleware before executing.</strong></li>
                     <li>You can <strong>ignore</strong> minification of some elements. Add <code>data-tachyon-ignore</code> as an element attribute to do so.</li>
                 </ul>
             </td>
