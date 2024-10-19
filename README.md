@@ -123,7 +123,7 @@ protected $middleware = [
         </tr>
         <tr>
             <td><code>InsertDNSPrefetch::class</code></td>
-            <td>Includes <pre><code><link rel="dns-prefetch" href="//www.example.com"></code></pre> tags in the HTML <pre><code><head></code></pre> section to enable DNS prefetching, reducing DNS lookup time and improving page load times.</td>
+            <td>Includes <code><link rel="dns-prefetch" href="//www.example.com"></code> tags in the HTML <code><head></code> section to enable DNS prefetching, reducing DNS lookup time and improving page load times.</td>
         </tr>
         <tr>
             <td><code>TrimUrls::class</code></td>
