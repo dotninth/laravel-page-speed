@@ -150,6 +150,17 @@ protected $middleware = [
     </tbody>
 </table>
 
+| Middleware                  | Description                                                                                                                                                                                                                                                                         |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RemoveComments::class`     | Removes HTML, JS, and CSS comments from the output to reduce the transfer size of HTML files.                                                                                                                                                                                       |
+| `CollapseWhitespace::class` | Reduces the size of HTML files by removing unnecessary white space.<br><br>* **It automatically calls the `RemoveComments::class` middleware before executing.**<br>* You can **ignore** minification of some elements. Add `data-tachyon-ignore` as an element attribute to do so. |
+| `RemoveQuotes::class`       | Removes unnecessary quotes from HTML attributes, resulting in a reduced byte count on most pages.                                                                                                                                                                                   |
+| `ElideAttributes::class`    | Reduces the transfer size of HTML files by removing attributes from tags if their values match the default attribute values.                                                                                                                                                        |
+| `InsertDNSPrefetch::class`  | Includes tags in the HTML section to enable DNS prefetching, reducing DNS lookup time and improving page load times.                                                                                                                                                                |
+| `TrimUrls::class`           | Trims URLs by making them relative to the base URL of the page. This can help reduce the size of URLs and may improve performance.<br><br>* **⚠️ Note: Use this middleware with care, as it can cause problems if the wrong base URL is used.**                                      |
+| `InlineCss::class`          | Transforms the inline \`style\` attribute of HTML tags into classes by moving the CSS into the \`\` section, improving page rendering and reducing the number of browser requests.                                                                                                  |
+| `DeferJavascript::class`    | Defers the execution of JavaScript code in HTML, prioritizing the rendering of critical content before executing JavaScript.<br><br>* If you need **to cancel the defer** in some script, use `data-tachyon-no-defer` as a script attribute to cancel the defer.                    |
+
 ## Configuration
 
 After installing the package, you may need to configure some options according to your needs.
