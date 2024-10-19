@@ -1,13 +1,4 @@
-<p align="center">
-    <a href="https://supportukrainenow.org#gh-light-mode-only">
-        <img src="./.github/assets/support-ukraine-light.svg" alt="Support Ukraine">
-    </a>
-    <a href="https://supportukrainenow.org#gh-dark-mode-only">
-        <img src="./.github/assets/support-ukraine-dark.svg" alt="Support Ukraine">
-    </a>
-</p>
-
-[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://supportukrainenow.org)
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct.svg)](https://stand-with-ukraine.pp.ua)
 
 <br>
 
