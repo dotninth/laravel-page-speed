@@ -12,10 +12,9 @@
 </h1>
 
 <h4 align="center">
-    <img src="http://poser.pugx.org/dotninth/laravel-tachyon/v?style=for-the-badge" alt="Latest Stable Version">
-    <img src="http://poser.pugx.org/dotninth/laravel-tachyon/require/php?style=for-the-badge" alt="PHP Version Require">
-    <img src="http://poser.pugx.org/dotninth/laravel-tachyon/license?style=for-the-badge" alt="License">
-    <a href="https://stand-with-ukraine.pp.ua"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg" alt="Stand With Ukraine"></a>
+    <img src="https://img.shields.io/badge/v4.0.0-version?style=for-the-badge&color=C9CBFF&labelColor=302D41&label=version" alt="Latest Stable Version">
+    <img src="https://img.shields.io/badge/8.2-php_version?style=for-the-badge&color=89dceb&labelColor=302D41&label=php%20version" alt="Required PHP Versiond">
+    <img src="https://img.shields.io/badge/MIT-license?style=for-the-badge&color=cba6f7&labelColor=302D41&label=license" alt="License">
 </h4>
 
 <br>
