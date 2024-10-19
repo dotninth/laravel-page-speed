@@ -1,4 +1,4 @@
-[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct.svg)](https://stand-with-ukraine.pp.ua)
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct.svg)](https://supportukrainenow.org/)
 
 <br>
 
@@ -19,6 +19,7 @@
     <img src="http://poser.pugx.org/dotninth/laravel-tachyon/v?style=for-the-badge" alt="Latest Stable Version">
     <img src="http://poser.pugx.org/dotninth/laravel-tachyon/require/php?style=for-the-badge" alt="PHP Version Require">
     <img src="http://poser.pugx.org/dotninth/laravel-tachyon/license?style=for-the-badge" alt="License">
+    <a href="https://stand-with-ukraine.pp.ua"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg" alt="Stand With Ukraine"></a>
 </h4>
 
 ## Introduction
