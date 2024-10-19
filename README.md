@@ -91,89 +91,32 @@ protected $middleware = [
 
 ## Middlewares Details
 
-<table>
-    <thead>
-        <tr>
-            <th>Middleware</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>RemoveComments::class</code></td>
-            <td>Removes HTML, JS, and CSS comments from the output to reduce the transfer size of HTML files.</td>
-        </tr>
-        <tr>
-            <td><code>CollapseWhitespace::class</code></td>
-            <td>
-                <p>Reduces the size of HTML files by removing unnecessary white space.</p>
-                <ul>
-                    <li><strong>It automatically calls the <code>RemoveComments::class</code> middleware before executing.</strong></li>
-                    <li>You can <strong>ignore</strong> minification of some elements. Add <code>data-tachyon-ignore</code> as an element attribute to do so.</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td><code>RemoveQuotes::class</code></td>
-            <td>Removes unnecessary quotes from HTML attributes, resulting in a reduced byte count on most pages.</td>
-        </tr>
-        <tr>
-            <td><code>ElideAttributes::class</code></td>
-            <td>Reduces the transfer size of HTML files by removing attributes from tags if their values match the default attribute values.</td>
-        </tr>
-        <tr>
-            <td><code>InsertDNSPrefetch::class</code></td>
-            <td>Includes <code><link rel="dns-prefetch" href="//www.example.com"></code> tags in the HTML <code><head></code> section to enable DNS prefetching, reducing DNS lookup time and improving page load times.</td>
-        </tr>
-        <tr>
-            <td><code>TrimUrls::class</code></td>
-            <td>
-                <p>Trims URLs by making them relative to the base URL of the page. This can help reduce the size of URLs and may improve performance.</p>
-                <ul>
-                    <li><strong>⚠️ Note: Use this middleware with care, as it can cause problems if the wrong base URL is used.</strong></li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td><code>InlineCss::class</code></td>
-            <td>Transforms the inline `style` attribute of HTML tags into classes by moving the CSS into the `<head>` section, improving page rendering and reducing the number of browser requests.</td>
-        </tr>
-        <tr>
-            <td><code>DeferJavascript::class</code></td>
-            <td>
-                <p>Defers the execution of JavaScript code in HTML, prioritizing the rendering of critical content before executing JavaScript.</p>
-                <ul>
-                    <li>If you need <strong>to cancel the defer</strong> in some script, use <code>data-tachyon-no-defer</code> as a script attribute to cancel the defer.</li>
-                </ul>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-### `RemoveComments::class`
-
-Removes HTML, JS, and CSS comments from the output to reduce the transfer size of HTML files.
-
-### `CollapseWhitespace::class`
-
-Reduces the size of HTML files by removing unnecessary white space.
-
-> [!IMPORTANT]
-> **It automatically calls the `RemoveComments::class` middleware before executing.**
-
-> [!NOTE]
-> You can **ignore** minification of some elements. Add `data-tachyon-ignore` as an element attribute to do so.
-
+- `RemoveComments::class`
+  - Removes HTML, JS, and CSS comments from the output to reduce the transfer size of HTML files.
+- `CollapseWhitespace::class`
+  - Reduces the size of HTML files by removing unnecessary white space.
 - `RemoveQuotes::class`
   - Removes unnecessary quotes from HTML attributes, resulting in a reduced byte count on most pages.
 - `ElideAttributes::class`
   - Reduces the transfer size of HTML files by removing attributes from tags if their values match the default attribute values.
-- `InsertDNSPrefetch::class`: Includes `<link rel="dns-prefetch" href="//www.example.com">` tags in the HTML `<head>` section to enable DNS prefetching, reducing DNS lookup time and improving page load times.
-- `TrimUrls::class`: Trims URLs by making them relative to the base URL of the page. This can help reduce the size of URLs and may improve performance.
-  - **⚠️ Note: Use this middleware with care, as it can cause problems if the wrong base URL is used.**
-- `InlineCss::class`: Transforms the inline `style` attribute of HTML tags into classes by moving the CSS into the `<head>` section, improving page rendering and reducing the number of browser requests.
-- `DeferJavascript::class`: Defers the execution of JavaScript code in HTML, prioritizing the rendering of critical content before executing JavaScript.
-  - If you need **to cancel the defer** in some script, use `data-tachyon-no-defer` as a script attribute to cancel the defer.
+- `InsertDNSPrefetch::class`
+  - Includes `<link rel="dns-prefetch" href="//www.example.com">` tags in the HTML `<head>` section to enable DNS prefetching, reducing DNS lookup time and improving page load times.
+- `TrimUrls::class`
+  - Trims URLs by making them relative to the base URL of the page. This can help reduce the size of URLs and may improve performance.
+- `InlineCss::class`
+  - Transforms the inline `style` attribute of HTML tags into classes by moving the CSS into the `<head>` section, improving page rendering and reducing the number of browser requests.
+- `DeferJavascript::class`
+  - Defers the execution of JavaScript code in HTML, prioritizing the rendering of critical content before executing JavaScript.
+    - If you need **to cancel the defer** in some script, use `data-tachyon-no-defer` as a script attribute to cancel the defer.
+
+> [!WARNING]
+> Use `TrimUrls::class` middleware with care, as it can cause problems if the wrong base URL is used.
+
+> [!IMPORTANT]
+> `CollapseWhitespace::class` automatically calls the `RemoveComments::class` middleware before executing.
+
+> [!NOTE]
+> You can **ignore** minification of some elements. Add `data-tachyon-ignore` as an element attribute to do so.
 
 ## Configuration
 
