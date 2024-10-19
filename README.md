@@ -161,11 +161,13 @@ Reduces the size of HTML files by removing unnecessary white space.
 > [!IMPORTANT]
 > **It automatically calls the `RemoveComments::class` middleware before executing.**
 
-> [!INFO]
+> [!NOTE]
 > You can **ignore** minification of some elements. Add `data-tachyon-ignore` as an element attribute to do so.
 
-- `RemoveQuotes::class`: Removes unnecessary quotes from HTML attributes, resulting in a reduced byte count on most pages.
-- `ElideAttributes::class`: Reduces the transfer size of HTML files by removing attributes from tags if their values match the default attribute values.
+- `RemoveQuotes::class`
+  - Removes unnecessary quotes from HTML attributes, resulting in a reduced byte count on most pages.
+- `ElideAttributes::class`
+  - Reduces the transfer size of HTML files by removing attributes from tags if their values match the default attribute values.
 - `InsertDNSPrefetch::class`: Includes `<link rel="dns-prefetch" href="//www.example.com">` tags in the HTML `<head>` section to enable DNS prefetching, reducing DNS lookup time and improving page load times.
 - `TrimUrls::class`: Trims URLs by making them relative to the base URL of the page. This can help reduce the size of URLs and may improve performance.
   - **⚠️ Note: Use this middleware with care, as it can cause problems if the wrong base URL is used.**
